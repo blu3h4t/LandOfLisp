@@ -84,3 +84,8 @@ there is a giant welding torch in the corner.))))
 (push (list object 'body) *object-locations*)
 `(you are now carrying the ,object))
 (t '(you cannot get that.))))
+
+(walk 'east)
+
+(pickup 'whiskey)
+
