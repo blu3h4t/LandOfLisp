@@ -100,12 +100,13 @@ there is a giant welding torch in the corner.))))
 
 (defun robots ()
 (loop named main
-with directions = '((q . -65) (w . -64) (e . -63) (a . -1)
-(d . 1) (z . 63) (x . 64) (c . 65))
+with directions = '((a . -65) (z . -64) (e . -63)
+(q . -1) (s . 0) (d . 1)
+(w . 63) (x . 64) (c . 65))
 for pos = 544
 then (progn (format t "~%aze/qsd/wxc to move,
 (t)eleport, (l)eave:")
-(force-outut)
+(force-output)
 (let* ((c (read))
 (d (assoc c directions)))
 (cond (d (+ pos (cdr d)))
@@ -126,7 +127,8 @@ collect (cons (+ (abs (- (mod new-mpos 64)
 new-mpos))
 '<
 :key #'car))))
-when (loop for mpos in monsters) 1))
+when (loop for mpos in monsters
+always (> (count mpos monsters) 1))
 return 'player-wins
 do (format t
 "~%|~{~<|~%|~,65:;~A~>~}|"
@@ -139,4 +141,4 @@ collect (cond ((member p monsters)
 ((= p pos)
 #\@)
 (t
-#\))))))
+#\ ))))))
