@@ -92,3 +92,9 @@ there is a giant welding torch in the corner.))))
 (defun inventory ()
 (cons 'items- (objects-at 'body *objects* *object-locations*)))
 
+(defun say-hello ()
+(print "Please type your name:")
+(let ((name (read)))
+(print "Noice to meet you, ")
+(print name)))
+
