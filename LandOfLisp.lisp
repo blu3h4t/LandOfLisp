@@ -89,3 +89,6 @@ there is a giant welding torch in the corner.))))
 
 (pickup 'whiskey)
 
+(defun inventory ()
+(cons 'items- (objects-at 'body *objects* *object-locations*)))
+
