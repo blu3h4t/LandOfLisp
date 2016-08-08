@@ -111,9 +111,8 @@ then (progn (format t "~%qwe/asd/zxc to move, (t)eleport, (l)eave:")
 ((eq 't c) (random 1024))
 ((eq 'l c) (return-from main 'bye))
 (t pos))))
-for monsters = (loop repeat 10
-collect (random 1024))
-then (loop for mpos is monsters
+for monsters = (loop repeat 10 collect (random 1024))
+then (loop for mpos in monsters
 collect (if (> (count mpos monsters) 1)
 mpos
 (cdar (sort (loop for (k . d) in directions
